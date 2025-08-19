@@ -15,6 +15,7 @@ Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" yang dikompil
 Analisis dilakukan pada sampel acak 30% dari total 24,592 artikel berita.
 
 1.  **Distribusi Label Sangat Seimbang:**
+    ![Distribusi Label EDA](img/EDA.png)
     * **Fakta (Label 0):** 51.6%
     * **Hoaks (Label 1):** 48.4%
     * Keseimbangan ini sangat ideal untuk melatih model AI yang objektif.
@@ -34,13 +35,8 @@ Model dasar ini dibuat untuk menjadi titik acuan (benchmark) performa sebelum me
 * **Akurasi pada Test Set:** **95.65%** 
 
 **Laporan Klasifikasi:**
-          precision    recall  f1-score   support
-Fakta (0)       0.93      0.99      0.96       2,529
-Hoaks (1)       0.99      0.92      0.95       2,390
-accuracy                            0.96       4,919
-macro avg       0.96      0.96      0.96       4,919
-weighted avg    0.96      0.96      0.96       4,919
 
+![Laporan Klasifikasi Baseline Model](img/Klasifikasi.png)
 
 **Confusion Matrix:**
 
