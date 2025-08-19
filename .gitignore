@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Mengabaikan folder data yang berisi dataset besar
+/data/
+
+# Mengabaikan file cache Jupyter Notebook
+.ipynb_checkpoints/
+
 # C extensions
 *.so
 

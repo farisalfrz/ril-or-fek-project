@@ -1,2 +1,68 @@
-# ril-or-fek-project
-Proyek untuk deteksi berita hoax (ril or fek)
+# Agen Deteksi Berita Hoax (Ril or Fek)
+
+## Deskripsi
+Proyek ini adalah sebuah studi kasus untuk membangun model *machine learning* yang mampu mengklasifikasikan artikel berita berbahasa Indonesia sebagai "Fakta" atau "Hoaks". Tujuannya adalah untuk menciptakan sebuah agen cerdas sebagai alat bantu dalam memerangi disinformasi digital.
+
+## Masalah yang Diselesaikan
+Penyebaran hoaks dan disinformasi di Indonesia merupakan masalah serius yang dapat mengancam stabilitas sosial dan pemahaman publik. Proyek ini bertujuan untuk mengembangkan sebuah solusi teknologi yang dapat membantu masyarakat memverifikasi informasi dengan lebih cepat dan mudah.
+
+---
+
+## Sumber Data
+Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" yang dikompilasi oleh Wersbo dan tersedia di [Kaggle](https://www.kaggle.com/datasets/mochamadabdulazis/deteksi-berita-hoaks-indo-dataset). Sumber berita asli (CNN Indonesia, Kompas, Detik, TurnBackHoax.id). Dataset ini berisi ribuan artikel berita yang telah dilabeli dan melalui proses pembersihan awal.
+
+## Temuan Awal dari EDA (Exploratory Data Analysis)
+Analisis dilakukan pada sampel acak 30% dari total 24,592 artikel berita.
+
+1.  **Distribusi Label Sangat Seimbang:**
+    * **Fakta (Label 0):** 51.6%
+    * **Hoaks (Label 1):** 48.4%
+    * Keseimbangan ini sangat ideal untuk melatih model AI yang objektif.
+2. **Pola Panjang Berita Teridentifikasi:**
+    * Rata-rata jumlah kata untuk berita **Fakta** adalah **3,808 kata**.
+    * Rata-rata jumlah kata untuk berita **Hoaks** adalah **3,570 kata**.
+    * Ini menunjukkan bahwa berita hoaks dalam dataset ini cenderung sedikit lebih ringkas.
+
+---
+
+## Hasil & Evaluasi Model
+
+### 1. Baseline Model (TF-IDF + Multinomial Naive Bayes)
+
+Model dasar ini dibuat untuk menjadi titik acuan (benchmark) performa sebelum menggunakan model yang lebih kompleks. Dataset yang terdiri dari **24,592 artikel** dibagi menjadi **80% data latih (19,673 artikel)** dan **20% data uji (4,919 artikel)**.Model ini dilatih menggunakan representasi teks TF-IDF dan algoritma klasifikasi Multinomial Naive Bayes.
+
+* **Akurasi pada Test Set:** **95.65%** 
+
+**Laporan Klasifikasi:**
+          precision    recall  f1-score   support
+Fakta (0)       0.93      0.99      0.96       2,529
+Hoaks (1)       0.99      0.92      0.95       2,390
+accuracy                            0.96       4,919
+macro avg       0.96      0.96      0.96       4,919
+weighted avg    0.96      0.96      0.96       4,919
+
+
+**Confusion Matrix:**
+
+![Confusion Matrix Baseline Model](img/baseline.png)
+
+**Interpretasi Singkat:**
+* Model dasar ini sudah menunjukkan performa yang sangat kuat dalam membedakan berita hoaks dan fakta.
+* Dari **2,390 berita hoaks** yang ada di data uji, model **berhasil mendeteksi 2,201** di antaranya dengan benar (nilai *Recall* tinggi).
+* Dari **2,390 berita yang diprediksi sebagai hoaks**, **2,201 di antaranya memang benar hoaks** (nilai *Precision* baik).
+
+
+---
+
+## Rencana Pengembangan (Roadmap)
+Proyek ini akan dikembangkan dalam beberapa fase:
+1.  **Fase 1 (Selesai):** Fondasi, Pengumpulan Data, EDA, dan Pengembangan model awal (Baseline).
+2.  **Fase 2:** Pengembangan Model (Advanced).
+3.  **Fase 3:** Pengembangan Aplikasi Full-Stack (Backend & Frontend).
+4.  **Fase 4:** Deployment dan Publikasi.
+
+## Teknologi yang Digunakan
+* **Analisis Data:** Python, Pandas, Matplotlib, Seaborn
+* **Model AI:** Scikit-learn, PyTorch/TensorFlow, Transformers (Hugging Face)
+* **Backend:** FastAPI
+* **Frontend:** Vue.js / React
