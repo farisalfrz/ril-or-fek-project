@@ -15,6 +15,7 @@ Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" yang dikompil
 Analisis dilakukan pada sampel acak 30% dari total 24,592 artikel berita.
 
 1.  **Distribusi Label Sangat Seimbang:**
+
     ![Distribusi Label EDA](img/EDA.png)
     * **Fakta (Label 0):** 51.6%
     * **Hoaks (Label 1):** 48.4%
