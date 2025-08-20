@@ -48,13 +48,30 @@ Model dasar ini dibuat untuk menjadi titik acuan (benchmark) performa sebelum me
 * Dari **2,390 berita hoaks** yang ada di data uji, model **berhasil mendeteksi 2,201** di antaranya dengan benar (nilai *Recall* tinggi).
 * Dari **2,390 berita yang diprediksi sebagai hoaks**, **2,201 di antaranya memang benar hoaks** (nilai *Precision* baik).
 
+### 2. Advanced Model (Fine-tuned IndoBERT)
+
+Untuk meningkatkan performa, model *Transformer* **Indobenchmark/IndoBERT** di-*fine-tune* selama 3 *epoch* pada dataset yang sama. Model ini dipilih karena kemampuannya memahami konteks dan nuansa Bahasa Indonesia secara mendalam.
+
+* **Model Tersedia di:** [**Lihat Model di Hugging Face Hub**](https://huggingface.co/faris27/indobert-hoax-detection)
+
+* **Akurasi pada Test Set:** **99.76%**
+
+![Akurasi IndoBERT Model](img/akurasi.png)
+
+**Laporan Klasifikasi:**
+
+![Laporan Klasifikasi IndoBERT Model](img/advanced.png)
+
+**Analisis:**
+*Fine-tuning* IndoBERT secara signifikan meningkatkan semua metrik evaluasi. Peningkatan terbesar terlihat pada **Precision**, yang berarti model canggih ini jauh lebih baik dalam memastikan bahwa berita yang ia prediksi sebagai "Hoaks" memang benar-benar hoaks, sehingga mengurangi risiko "salah tuduh".
+
 
 ---
 
 ## Rencana Pengembangan (Roadmap)
 Proyek ini akan dikembangkan dalam beberapa fase:
 1.  **Fase 1 (Selesai):** Fondasi, Pengumpulan Data, EDA, dan Pengembangan model awal (Baseline).
-2.  **Fase 2:** Pengembangan Model (Advanced).
+2.  **Fase 2 (Selesai):** Pengembangan Model (Advanced).
 3.  **Fase 3:** Pengembangan Aplikasi Full-Stack (Backend & Frontend).
 4.  **Fase 4:** Deployment dan Publikasi.
 
