@@ -62,6 +62,12 @@ Untuk meningkatkan performa, model *Transformer* **Indobenchmark/IndoBERT** di-*
 
 ![Laporan Klasifikasi IndoBERT Model](img/advanced.png)
 
+### **3. Perbandingan Performa Model**
+
+Confusion matrix berikut merangkum perbandingan performa antara *Baseline Model* dan *Advanced Model* pada metrik-metrik kunci.
+
+![Confusion Matrix IndoBert Model](img/indobert.png)
+
 **Analisis:**
 *Fine-tuning* IndoBERT secara signifikan meningkatkan semua metrik evaluasi. Peningkatan terbesar terlihat pada **Precision**, yang berarti model canggih ini jauh lebih baik dalam memastikan bahwa berita yang ia prediksi sebagai "Hoaks" memang benar-benar hoaks, sehingga mengurangi risiko "salah tuduh".
 
