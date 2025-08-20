@@ -52,9 +52,17 @@ Model dasar ini dibuat untuk menjadi titik acuan (benchmark) performa sebelum me
 
 Untuk meningkatkan performa, model *Transformer* **Indobenchmark/IndoBERT** di-*fine-tune* selama 3 *epoch* pada dataset yang sama. Model ini dipilih karena kemampuannya memahami konteks dan nuansa Bahasa Indonesia secara mendalam.
 
+### Proses Pelatihan & Pemilihan Model
+
+![Fine Tuning IndoBert Model](img/indobert.png)
+
+Model di-*fine-tune* selama **3 epoch** penuh. Proses pelatihan ini dipantau secara saksama menggunakan data validasi di setiap akhir epoch untuk memilih versi model yang paling optimal dan menghindari *overfitting*.
+
+Parameter `load_best_model_at_end=True` diaktifkan, yang secara otomatis akan memilih model berdasarkan skor **Validation Loss** terendah.
+
 * **Model Tersedia di:** [**Lihat Model di Hugging Face Hub**](https://huggingface.co/faris27/indobert-hoax-detection)
 
-* **Akurasi pada Test Set:** **99.76%**
+* **Akurasi pada Test Set:** **99.84%**
 
 ![Akurasi IndoBERT Model](img/akurasi.png)
 
@@ -71,6 +79,11 @@ Confusion matrix berikut merangkum perbandingan performa antara *Baseline Model*
 **Analisis:**
 *Fine-tuning* IndoBERT secara signifikan meningkatkan semua metrik evaluasi. Peningkatan terbesar terlihat pada **Precision**, yang berarti model canggih ini jauh lebih baik dalam memastikan bahwa berita yang ia prediksi sebagai "Hoaks" memang benar-benar hoaks, sehingga mengurangi risiko "salah tuduh".
 
+Seperti yang terlihat pada tabel, **Validation Loss** (tingkat kesalahan pada data baru) mencapai titik terendahnya di **Epoch 2**. Namun, di **Epoch 3**, meskipun *Training Loss* terus menurun (model semakin hafal data latih), *Validation Loss* justru kembali naik.
+
+Ini adalah **indikator klasik dari *overfitting***, di mana model mulai kehilangan kemampuannya untuk menggeneralisasi.
+
+Berkat konfigurasi `load_best_model_at_end=True`, *Trainer* secara cerdas **membuang model dari Epoch 3 dan secara otomatis menggunakan model dari Epoch 2** sebagai model final. Oleh karena itu, akurasi akhir sebesar **99.84%** yang didapat adalah hasil dari model yang paling optimal dan tidak *overfitting*.
 
 ---
 
