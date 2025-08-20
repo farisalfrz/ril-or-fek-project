@@ -54,7 +54,7 @@ Untuk meningkatkan performa, model *Transformer* **Indobenchmark/IndoBERT** di-*
 
 ### Proses Pelatihan & Pemilihan Model
 
-![Fine Tuning IndoBert Model](img/indobert.png)
+![Fine Tuning IndoBert Model](img/fine-tune.png)
 
 Model di-*fine-tune* selama **3 epoch** penuh. Proses pelatihan ini dipantau secara saksama menggunakan data validasi di setiap akhir epoch untuk memilih versi model yang paling optimal dan menghindari *overfitting*.
 
