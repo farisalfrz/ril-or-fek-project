@@ -98,4 +98,4 @@ Proyek ini akan dikembangkan dalam beberapa fase:
 * **Analisis Data:** Python, Pandas, Matplotlib, Seaborn
 * **Model AI:** Scikit-learn, PyTorch, Transformers (Hugging Face)
 * **Backend:** FastAPI
-* **Frontend:** Vue
+* **Frontend:** React
