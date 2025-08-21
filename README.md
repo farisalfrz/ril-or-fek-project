@@ -96,6 +96,6 @@ Proyek ini akan dikembangkan dalam beberapa fase:
 
 ## Teknologi yang Digunakan
 * **Analisis Data:** Python, Pandas, Matplotlib, Seaborn
-* **Model AI:** Scikit-learn, PyTorch/TensorFlow, Transformers (Hugging Face)
+* **Model AI:** Scikit-learn, PyTorch, Transformers (Hugging Face)
 * **Backend:** FastAPI
-* **Frontend:** Vue.js / React
+* **Frontend:** React
