@@ -9,7 +9,7 @@ Penyebaran hoaks dan disinformasi di Indonesia merupakan masalah serius yang dap
 ---
 
 ## Sumber Data
-Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" yang dikompilasi oleh Wersbo dan Mochamad Abdul Azis, tersedia di [Kaggle](https://www.kaggle.com/datasets/mochamadabdulazis/deteksi-berita-hoaks-indo-dataset). Sumber berita asli (CNN Indonesia, Kompas, Detik, TurnBackHoax.id). Dataset ini berisi ribuan artikel berita yang telah dilabeli dan melalui proses pembersihan awal.
+Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" yang dikompilasi oleh Mochamad Abdul Azis, tersedia di [Kaggle](https://www.kaggle.com/datasets/mochamadabdulazis/deteksi-berita-hoaks-indo-dataset). Sumber berita asli (CNN Indonesia, Kompas, Detik, TurnBackHoax.id). Dataset ini berisi ribuan artikel berita yang telah dilabeli dan melalui proses pembersihan awal.
 
 ## Temuan Awal dari EDA (Exploratory Data Analysis)
 Analisis dilakukan pada sampel acak 30% dari total 24,592 artikel berita.
