@@ -9,7 +9,7 @@ import datetime
 import requests
 
 # Insialisasi FastAPI
-app = FastAPI()
+app = FastAPI(openapi_url="/api/openapi.json")
 
 # Konfigurasi CORS
 origins = [
