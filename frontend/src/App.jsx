@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import profilePhoto from './img/foto-faris.jpg';
 import saweriaLogo from './img/saweria.png';
 
+const BACKEND_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 // --- Komponen Tombol Switch Dark Mode ---
 const ThemeSwitcher = ({ theme, toggleTheme }) => {
   return (
@@ -58,7 +60,7 @@ const HomePage = () => {
     setIsLoading(true);
     setResult(null);
     try {
-      const response = await fetch("http://127.0.0.1:8000/analyze/", {
+      const response = await fetch(`${BACKEND_URL}/analyze/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ teks: inputText }),
@@ -278,7 +280,7 @@ const HoaxTrackerPage = () => {
   useEffect(() => {
     const fetchHoaxes = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/hoaxes");
+        const response = await fetch(`${BACKEND_URL}/hoaxes`);
         if (!response.ok) {
           throw new Error("Gagal mengambil data dari server.");
         }
