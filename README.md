@@ -78,11 +78,19 @@ Penyebaran hoaks dan disinformasi di Indonesia merupakan masalah serius yang dap
 ### 1. Sumber Data & EDA
 Proyek ini menggunakan dataset "Deteksi Berita Hoaks Indo Dataset" dari [Kaggle](https://www.kaggle.com/datasets/mochamadabdulazis/deteksi-berita-hoaks-indo-dataset), yang bersumber dari Turnbackhoax.id, CNN Indonesia, Kompas, dan Detik.com. Analisis awal menunjukkan dataset seimbang (51.6% Fakta, 48.4% Hoaks) dan siap untuk pelatihan.
 
+![Distribusi Label EDA](img/EDA.png)
+
 ### 2. Perbandingan Model
 Dua model dikembangkan untuk perbandingan:
 
 * **Baseline Model (TF-IDF + Naive Bayes):** Mencapai akurasi **95.65%**.
 * **Advanced Model (Fine-tuned IndoBERT):** Model utama yang digunakan di aplikasi. Model ini di-*fine-tune* selama 3 *epoch*, dan model terbaik dari **Epoch 2** dipilih secara otomatis untuk menghindari *overfitting*, menghasilkan akurasi final di data uji sebesar **99.84%**.
+
+![Akurasi IndoBERT Model](img/akurasi.png)
+
+#### Confusion Matrix
+
+![Confusion Matrix IndoBert Model](img/indobert.png)
 
 Model yang sudah terlatih di-hosting di [**Hugging Face Hub**](https://huggingface.co/faris27/indobert-hoax-detection).
 
