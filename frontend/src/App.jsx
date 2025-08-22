@@ -280,7 +280,7 @@ const HoaxTrackerPage = () => {
   useEffect(() => {
     const fetchHoaxes = async () => {
       try {
-        const response = await fetch(`${BACKEND_URL}/hoaxes`Z);
+        const response = await fetch(`${BACKEND_URL}/hoaxes`);
         if (!response.ok) {
           throw new Error("Gagal mengambil data dari server.");
         }
