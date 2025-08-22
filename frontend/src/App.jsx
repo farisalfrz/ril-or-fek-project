@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import profilePhoto from './img/foto-faris.jpg';
 import saweriaLogo from './img/saweria.png';
 
-const BACKEND_URL = import.meta.env.VITE_API_URL || "https://ril-or-fek-app-hef4z.ondigitalocean.app/";
+const BACKEND_URL = "https://ril-or-fek-app-hef4z.ondigitalocean.app/";
 
 // --- Komponen Tombol Switch Dark Mode ---
 const ThemeSwitcher = ({ theme, toggleTheme }) => {
