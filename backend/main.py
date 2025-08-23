@@ -52,7 +52,7 @@ def get_latest_hoaxes():
 
     print("Mengambil data hoaks baru dari RSS Feed...")
     try:
-        RSS_URL = "https://turnbackhoax.id/feed/"
+        RSS_URL = "https://cekfakta.tempo.co/rss"
 
         # Tambahkan User-Agent untuk meniru browser
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
@@ -73,7 +73,7 @@ def get_latest_hoaxes():
 
             latest_hoaxes.append({
                 "id": entry.id, "title": entry.title, "summary": summary_text,
-                "source": "Turnbackhoax.id", "link": entry.link, "date": entry.published,
+                "source": "Cekfakta Tempo", "link": entry.link, "date": entry.published,
             })
 
         cached_hoaxes = latest_hoaxes
