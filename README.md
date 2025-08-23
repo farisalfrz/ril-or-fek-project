@@ -4,15 +4,22 @@
 
 Aplikasi web full-stack yang mampu menganalisis teks berita berbahasa Indonesia dan memprediksi apakah berita tersebut hoaks atau fakta menggunakan model AI (IndoBERT) yang telah di-*fine-tune*.
 
+**Live Demo:** [**https://ril-or-fek-app-hef4z.ondigitalocean.app/**](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
+
+[![Tampilan Utama Aplikasi Ril or Fek](https://i.imgur.com/NytFj6i.png)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
+
+[![Tampilan Dark Mode Aplikasi Ril or Fek](https://i.imgur.com/cvrS8TZ.png)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
+
 
 ---
 
 ## 📜 Daftar Isi
 * [Tentang Proyek](#-tentang-proyek)
 * [Fitur Utama](#-fitur-utama)
-* [Teknologi yang digunakan](#-teknologi-yang-digunakan)
+* [Teknologi yang Digunakan](#️-teknologi-yang-digunakan)
 * [Alur Kerja & Performa Model](#-alur-kerja--performa-model)
 * [Cara Menjalankan Secara Lokal](#-cara-menjalankan-secara-lokal)
+* [Proses Deployment](#️-proses-deployment)
 
 ---
 
@@ -28,11 +35,23 @@ Penyebaran hoaks dan disinformasi di Indonesia merupakan masalah serius yang dap
 ## ✨ Fitur Utama
 
 * **Analisis Teks AI:** Memprediksi berita hoaks/fakta dengan akurasi ~99.84%.
+
+[![Contoh Analisis](https://i.imgur.com/ZpK0sE0.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 * **Antarmuka Multi-Halaman:** Navigasi yang mulus antara halaman Analisis, Lacak Hoaks, Tentang Model, FAQ, dan Tentang Saya.
+
+[![Navigasi Halaman](https://i.imgur.com/0KHPlK4.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 * **Mode Terang & Gelap (Dark Mode):** Tampilan yang nyaman digunakan kapan saja, dengan preferensi yang tersimpan di perangkat pengguna.
+
+[![Dark Mode](https://i.imgur.com/7Cdcza6.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 * **Pelacak Hoaks Dinamis:** Mengambil data hoaks terkini secara *real-time* dari RSS Feed Turnbackhoax.id.
+
+[![Lacak Hoaks](https://i.imgur.com/aFYCocA.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 * **Desain Responsif:** Tampilan yang optimal di perangkat desktop maupun mobile.
+
+[![Responsif](https://i.imgur.com/ATHcbeC.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 * **Interaksi Halus:** Animasi yang memanjakan mata saat berpindah halaman dan menampilkan hasil.
+
+[![Smooth](https://i.imgur.com/2dufPsb.gif)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 
 ---
 
@@ -86,6 +105,8 @@ Dua model dikembangkan untuk perbandingan:
 * **Baseline Model (TF-IDF + Naive Bayes):** Mencapai akurasi **95.65%**.
 * **Advanced Model (Fine-tuned IndoBERT):** Model utama yang digunakan di aplikasi. Model ini di-*fine-tune* selama 3 *epoch*, dan model terbaik dari **Epoch 2** dipilih secara otomatis untuk menghindari *overfitting*, menghasilkan akurasi final di data uji sebesar **99.84%**.
 
+![Fine-tune IndoBERT Model](img/fine-tune.png)
+
 ![Akurasi IndoBERT Model](img/akurasi.png)
 
 #### Confusion Matrix
@@ -133,3 +154,15 @@ npm install
 npm run dev
 ```
 *Aplikasi frontend akan berjalan di http://localhost:5173
+
+---
+
+## ☁️ Proses Deployment
+
+Aplikasi ini di-deploy menggunakan arsitektur multi-komponen di DigitalOcean App Platform.
+
+* **Backend (Web Service):** Berjalan sebagai layanan web Python, di-hosting di instance Basic dengan 1 GB RAM untuk menangani pemuatan model AI.
+
+* **Frontend (Static Site):** Dihasilkan dari proses ``npm run build`` dan disajikan sebagai situs statis.
+
+* **Konektivitas:** Frontend terhubung ke backend menggunakan environment variable dan URL internal yang disediakan oleh DigitalOcean, memastikan komunikasi yang aman dan efisien.
