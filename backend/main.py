@@ -41,7 +41,7 @@ cached_hoaxes = []
 last_fetched_time = None
 CACHE_DURATION_SECONDS = 3600  # Cache berlaku selama 1 jam (3600 detik)
 
-# Endpoint API baru yang mengambil data dari RSS Feed
+# Endpoint API yang mengambil data dari RSS Feed
 @app.get("/hoaxes")
 def get_latest_hoaxes():
     global cached_hoaxes, last_fetched_time
@@ -53,35 +53,40 @@ def get_latest_hoaxes():
     print("Mengambil data hoaks baru dari RSS Feed...")
     try:
         RSS_URL = "https://cekfakta.tempo.co/rss"
-
-        # Tambahkan User-Agent untuk meniru browser
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
-
-        # Gunakan requests untuk mengambil konten feed
+        
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        
+        # Gunakan 'requests' untuk mengambil konten feed dengan header
         response = requests.get(RSS_URL, headers=headers)
-        response.raise_for_status() # Ini akan memunculkan error jika status bukan 200 OK
-
-        # Proses konten dengan feedparser
+        response.raise_for_status() 
+        
         feed = feedparser.parse(response.content)
 
         latest_hoaxes = []
-        for entry in feed.entries[:5]:
+        for entry in feed.entries[:5]: # Ambil 5 berita teratas
             soup = BeautifulSoup(entry.summary, 'html.parser')
             summary_text = soup.get_text().strip()
             if len(summary_text) > 200:
                 summary_text = summary_text[:200] + "..."
 
             latest_hoaxes.append({
-                "id": entry.id, "title": entry.title, "summary": summary_text,
-                "source": "Cekfakta Tempo", "link": entry.link, "date": entry.published,
+                "id": entry.id,
+                "title": entry.title,
+                "summary": summary_text,
+                "source": "Cekfakta Tempo",
+                "link": entry.link,
+                "date": entry.published,
             })
-
+        
         cached_hoaxes = latest_hoaxes
         last_fetched_time = datetime.datetime.now()
-
-        return cached_hoaxes
+        
+        return latest_hoaxes
     except Exception as e:
         print(f"Error saat mengambil RSS Feed: {e}")
+        # Jika gagal, kembalikan cache lama jika ada, atau error
         if cached_hoaxes:
             return cached_hoaxes
         raise HTTPException(status_code=500, detail="Gagal mengambil data hoaks terkini.")
