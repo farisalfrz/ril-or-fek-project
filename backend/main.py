@@ -13,6 +13,7 @@ app = FastAPI(openapi_url="/api/openapi.json")
 
 # Konfigurasi CORS
 origins = [
+    "https://rof.farisalfarizi.my.id",
     "http://localhost:5173", 
     "http://localhost:3000", 
 ]
