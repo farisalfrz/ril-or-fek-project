@@ -4,7 +4,7 @@
 
 Aplikasi web full-stack yang mampu menganalisis teks berita berbahasa Indonesia dan memprediksi apakah berita tersebut hoaks atau fakta menggunakan model AI (IndoBERT) yang telah di-*fine-tune*.
 
-**Live Demo:** [**https://ril-or-fek-app-hef4z.ondigitalocean.app/**](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
+**Live Demo:** [**rof.farisalfarizi.my.id**](https://rof.farisalfarizi.my.id/)
 
 [![Tampilan Utama Aplikasi Ril or Fek](https://i.imgur.com/NytFj6i.png)](https://ril-or-fek-app-hef4z.ondigitalocean.app/)
 
